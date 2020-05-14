@@ -21,17 +21,26 @@ class ViewController: UIViewController {
     
     func isAho() -> Bool {
         // 問題1: 3の倍数かどうか調べる
+        if number % 3 == 0{
+            return true
+        }
         
-        // 問題2: 1の位が3かどうか調べる
-        
-        // 問題3: 10の位が3かどうか調べる
-
         // 問題4: 3がつくかどうか調べる
         // 問題4をやるときは問題3と問題2の答えを消してから書こう
+        var checkNum: Int = number
+        
+        while checkNum != 0 {
+            if checkNum % 10 == 3 {
+                return true
+            } else {
+                checkNum = checkNum / 10
+            }
+        }
 
         
-        return false
+            return false
     }
+    
     @IBAction func plusButton(){
         number = number + 1
         countLabel.text = String(number)
@@ -43,6 +52,10 @@ class ViewController: UIViewController {
             
             faceLabel.text = "(゜o゜)"
         }
+    }
+    @IBAction func clearbuton(){
+        number = 0
+        countLabel.text = String(number)
     }
 
 
